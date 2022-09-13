@@ -9,7 +9,7 @@ import UIKit
 
 class MSCollectionViewController: UICollectionViewController {
      
-    let dataSource: [[MSCellData]] = [[MSCellData(), MSCellData(), MSCellData()], [MSCellData(), MSCellData(), MSCellData()]]
+    let dataSource: [[MSCellData]] = MSGame.generateGrid(row: 5, col: 5)
     
     override func viewDidLoad() {
         super.viewDidLoad()

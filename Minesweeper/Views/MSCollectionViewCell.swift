@@ -11,6 +11,10 @@ class MSCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var MSlabel: UILabel!
     
     func configure(data: MSCellData) {
-        MSlabel.text = data.bee ? "B" : "N"
+        guard data.revealed else {
+            MSlabel.text = "?"
+            return
+        }
+        MSlabel.text = data.mine ? "O" : "N"
     }
 }
