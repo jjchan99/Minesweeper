@@ -7,9 +7,20 @@
 
 import Foundation
 
-struct MSCellData {
+class MSCellData {
+    init(mine: Bool = false, revealed: Bool = true, neighbouringMines: Int = 0) {
+        self.mine = mine
+        self.revealed = revealed
+        self.neighbouringMines = neighbouringMines
+    }
+    
     var mine: Bool = false
-    var revealed: Bool = false
+    var revealed: Bool = true
+    var neighbouringMines: Int = 0
+}
+
+class MSGrid {
+    var grid = [[MSCellData]]()
 }
 
 struct MSGame {
@@ -22,15 +33,36 @@ struct MSGame {
         }
     }
     
-    static func generateGrid(row: Int, col: Int) -> [[MSCellData]] {
-        var grid = [[MSCellData]]()
-        for i in 0..<col {
-            grid.append([])
-            for j in 0..<row {
-                grid[i].append(MSGame.generateCell())
+    static func incrementNeighbouringMines(grid: MSGrid, i: Int, j: Int) {
+        let grid = grid.grid
+        let c = grid[i][j]
+        
+        let u = grid[i - 1][j]
+        let ur = grid[i - 1][j + 1]
+        let r = grid[i][j + 1]
+        let dr = grid[i + 1][j + 1]
+        let d = grid[i + 1][j]
+        let dl = grid[i + 1][j - 1]
+        let l = grid[i][j - 1]
+        let ul = grid[i - 1][j - 1]
+        
+        if c.mine {
+            for cell in [u, ur, r, dr, d, dl, l, ul] {
+                cell.neighbouringMines += 1
             }
         }
-        return grid
+    }
+    
+    static func generateGrid(row: Int, col: Int) -> MSGrid {
+        let msgrid = MSGrid()
+        for i in 0..<row {
+            msgrid.grid.append([])
+            for j in 0..<col {
+                msgrid.grid[i].append(MSGame.generateCell())
+//                incrementNeighbouringMines(grid: msgrid, i: i, j: j)
+            }
+        }
+        return msgrid
     }
     
     
