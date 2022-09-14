@@ -9,7 +9,7 @@ import UIKit
 
 class MSCollectionViewController: UICollectionViewController {
      
-    let dataSource: MSGrid = MSGame.generateGrid(row: 10, col: 5)
+    let dataSource: [[MSCellData]] = MSGame.generateGrid(row: 10, col: 5)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,11 +17,11 @@ class MSCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataSource.grid[section].count
+        return dataSource[section].count
     }
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return dataSource.grid.count
+        return dataSource.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -29,7 +29,7 @@ class MSCollectionViewController: UICollectionViewController {
         
         if let MSCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? MSCollectionViewCell {
             
-            MSCell.configure(data: dataSource.grid[indexPath.section][indexPath.row])
+            MSCell.configure(data: dataSource[indexPath.section][indexPath.row])
             
             cell = MSCell
         } else {
