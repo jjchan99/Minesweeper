@@ -12,9 +12,12 @@
 		1DF3956F28D0541E00ABAC34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DF3956D28D0541E00ABAC34 /* Main.storyboard */; };
 		1DF3957128D0542400ABAC34 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1DF3957028D0542400ABAC34 /* Assets.xcassets */; };
 		1DF3957428D0542400ABAC34 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DF3957228D0542400ABAC34 /* LaunchScreen.storyboard */; };
-		1DF3958028D0569300ABAC34 /* MSCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF3957F28D0569300ABAC34 /* MSCell.swift */; };
-		1DF3958228D05B5100ABAC34 /* MSCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF3958128D05B5100ABAC34 /* MSCollectionViewController.swift */; };
-		1DF3958428D05D7100ABAC34 /* MSCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF3958328D05D7100ABAC34 /* MSCollectionViewCell.swift */; };
+		1DF3958028D0569300ABAC34 /* Cell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF3957F28D0569300ABAC34 /* Cell.swift */; };
+		1DF3958228D05B5100ABAC34 /* GridViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF3958128D05B5100ABAC34 /* GridViewController.swift */; };
+		1DF3958428D05D7100ABAC34 /* CellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF3958328D05D7100ABAC34 /* CellView.swift */; };
+		85FA50CE28D465BD00B1F25A /* GridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA50CD28D465BD00B1F25A /* GridViewModel.swift */; };
+		85FA50D028D47A4000B1F25A /* CellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA50CF28D47A4000B1F25A /* CellViewModel.swift */; };
+		85FA50D328D47B0100B1F25A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA50D228D47B0100B1F25A /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,9 +28,12 @@
 		1DF3957028D0542400ABAC34 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1DF3957328D0542400ABAC34 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1DF3957528D0542400ABAC34 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1DF3957F28D0569300ABAC34 /* MSCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSCell.swift; sourceTree = "<group>"; };
-		1DF3958128D05B5100ABAC34 /* MSCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSCollectionViewController.swift; sourceTree = "<group>"; };
-		1DF3958328D05D7100ABAC34 /* MSCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MSCollectionViewCell.swift; sourceTree = "<group>"; };
+		1DF3957F28D0569300ABAC34 /* Cell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cell.swift; sourceTree = "<group>"; };
+		1DF3958128D05B5100ABAC34 /* GridViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewController.swift; sourceTree = "<group>"; };
+		1DF3958328D05D7100ABAC34 /* CellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellView.swift; sourceTree = "<group>"; };
+		85FA50CD28D465BD00B1F25A /* GridViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewModel.swift; sourceTree = "<group>"; };
+		85FA50CF28D47A4000B1F25A /* CellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellViewModel.swift; sourceTree = "<group>"; };
+		85FA50D228D47B0100B1F25A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +68,8 @@
 			children = (
 				1DF3956728D0541E00ABAC34 /* AppDelegate.swift */,
 				1DF3956928D0541E00ABAC34 /* SceneDelegate.swift */,
-				1DF3958128D05B5100ABAC34 /* MSCollectionViewController.swift */,
+				85FA50D128D47ACE00B1F25A /* ViewControllers */,
+				85FA50CC28D4659800B1F25A /* ViewModels */,
 				1DF3957E28D0568100ABAC34 /* Models */,
 				1DF3957B28D054A300ABAC34 /* Views */,
 				1DF3956D28D0541E00ABAC34 /* Main.storyboard */,
@@ -76,7 +83,7 @@
 		1DF3957B28D054A300ABAC34 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				1DF3958328D05D7100ABAC34 /* MSCollectionViewCell.swift */,
+				1DF3958328D05D7100ABAC34 /* CellView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -84,9 +91,27 @@
 		1DF3957E28D0568100ABAC34 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				1DF3957F28D0569300ABAC34 /* MSCell.swift */,
+				1DF3957F28D0569300ABAC34 /* Cell.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		85FA50CC28D4659800B1F25A /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				85FA50CD28D465BD00B1F25A /* GridViewModel.swift */,
+				85FA50CF28D47A4000B1F25A /* CellViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		85FA50D128D47ACE00B1F25A /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				85FA50D228D47B0100B1F25A /* MainViewController.swift */,
+				1DF3958128D05B5100ABAC34 /* GridViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -160,11 +185,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1DF3958428D05D7100ABAC34 /* MSCollectionViewCell.swift in Sources */,
+				85FA50CE28D465BD00B1F25A /* GridViewModel.swift in Sources */,
+				1DF3958428D05D7100ABAC34 /* CellView.swift in Sources */,
 				1DF3956828D0541E00ABAC34 /* AppDelegate.swift in Sources */,
-				1DF3958228D05B5100ABAC34 /* MSCollectionViewController.swift in Sources */,
+				85FA50D028D47A4000B1F25A /* CellViewModel.swift in Sources */,
+				1DF3958228D05B5100ABAC34 /* GridViewController.swift in Sources */,
 				1DF3956A28D0541E00ABAC34 /* SceneDelegate.swift in Sources */,
-				1DF3958028D0569300ABAC34 /* MSCell.swift in Sources */,
+				1DF3958028D0569300ABAC34 /* Cell.swift in Sources */,
+				85FA50D328D47B0100B1F25A /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

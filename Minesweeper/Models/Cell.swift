@@ -7,7 +7,7 @@
 
 import Foundation
 
-class MSCellData {
+class Cell {
     init(mine: Bool = false, revealed: Bool = true, neighbouringMines: Int = 0) {
         self.mine = mine
         self.revealed = revealed
@@ -20,16 +20,16 @@ class MSCellData {
 }
 
 struct MSGame {
-    static private func generateCell() -> MSCellData {
+    static private func generateCell() -> Cell {
         let mineFactor: Int = Int.random(in: 1...3)
         if mineFactor == 1 {
-            return MSCellData(mine: true)
+            return Cell(mine: true)
         } else {
-            return MSCellData()
+            return Cell()
         }
     }
     
-    static private func incrementNeighbouringMines(grid: [[MSCellData]]) {
+    static private func incrementNeighbouringMines(grid: [[Cell]]) {
         
         for i in 0..<grid.count {
             for j in 0..<grid[i].count {
@@ -54,8 +54,8 @@ struct MSGame {
         }
     }
     
-    static func generateGrid(row: Int, col: Int) -> [[MSCellData]] {
-        var grid = [[MSCellData]]()
+    static func generateGrid(row: Int, col: Int) -> [[Cell]] {
+        var grid = [[Cell]]()
         for i in 0..<row {
             grid.append([])
             for _ in 0..<col {

@@ -7,35 +7,36 @@
 
 import UIKit
 
-class MSCollectionViewController: UICollectionViewController {
+class GridViewController: UICollectionViewController {
      
-    let dataSource: [[MSCellData]] = MSGame.generateGrid(row: 10, col: 5)
+    var viewModel = GridViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("viewDidLoad()")
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return dataSource[section].count
+        return viewModel.cells[section].count
     }
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return dataSource.count
+        return viewModel.cells.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        var cell = MSCollectionViewCell()
+        let cell = viewModel.cells[indexPath.section][indexPath.row]
         
-        if let MSCell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? MSCollectionViewCell {
+        if let cellView = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? CellView {
             
-            MSCell.configure(data: dataSource[indexPath.section][indexPath.row])
+            cellView.configure(cell: cell)
             
-            cell = MSCell
+            return cellView
         } else {
             fatalError()
         }
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        return cell
     }
 }
