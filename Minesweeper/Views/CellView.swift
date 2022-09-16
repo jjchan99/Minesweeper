@@ -8,7 +8,9 @@
 import UIKit
 
 class CellView: UICollectionViewCell {
+    
     @IBOutlet weak var label: UILabel!
+    
     var viewModel = CellViewModel()
     
     func configure(cell: Cell) {

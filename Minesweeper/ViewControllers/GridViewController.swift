@@ -13,6 +13,7 @@ class GridViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        viewModel.cells = Grid.generateGrid(row: 10, col: 5)
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
