@@ -9,7 +9,7 @@ import UIKit
 
 class GridViewController: UICollectionViewController {
      
-    var viewModel = GridViewModel()
+    var viewModel = GridViewModel() 
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +38,9 @@ class GridViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        
+        let cell =  self.viewModel.cells[indexPath.section][indexPath.row]
+        cell.revealed.toggle()
+        let cellView = self.collectionView.cellForItem(at: indexPath) as! CellView
+        cellView.configure(cell: cell)
     }
 }

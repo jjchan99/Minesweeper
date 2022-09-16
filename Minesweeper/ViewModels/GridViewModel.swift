@@ -8,7 +8,7 @@
 import Foundation
 
 class GridViewModel {
-    var cells: [[Cell]] = []
+    var cells: [[Cell]] = [] 
     
     
     

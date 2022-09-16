@@ -8,13 +8,17 @@
 import Foundation
 
 class Cell {
-    init(mine: Bool = false, revealed: Bool = true, neighbouringMines: Int = 0) {
+    init(mine: Bool = false, revealed: Bool = false, neighbouringMines: Int = 0) {
         self.mine = mine
         self.revealed = revealed
         self.neighbouringMines = neighbouringMines
     }
     
     var mine: Bool = false
-    var revealed: Bool = false
+    var revealed: Bool = false {
+        didSet {
+            print("grid value changed")
+        }
+    }
     var neighbouringMines: Int = 0
 }
