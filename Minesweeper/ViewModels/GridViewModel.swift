@@ -72,7 +72,7 @@ extension GridViewModel {
     }
     
     private func generateCell() -> Cell {
-        let mineFactor: Int = Int.random(in: 1...3)
+        let mineFactor: Int = Int.random(in: 1...5)
         if mineFactor == 1 {
             return Cell(mine: true)
         } else {

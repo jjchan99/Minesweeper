@@ -5,7 +5,7 @@
 //  Created by jchan on 16/9/22.
 //
 
-import Foundation
+import UIKit
 
 class CellViewModel {
     var cell: Cell? {
@@ -16,12 +16,16 @@ class CellViewModel {
         didSet {
             text = cell!.revealed ?
                cell!.mine ?
-                   "X" :
+                   "💣" :
                        cell?.neighbouringMines == 0 ?
-                          "O" :
+                          "" :
                           "\(cell!.neighbouringMines)"
-            : "?"
+            : ""
         }
+    }
+    
+    var backgroundColor: UIColor? {
+        cell?.revealed ?? false ? .lightGray : .darkGray
     }
     
     var text: String = ""

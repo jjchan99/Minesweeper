@@ -13,7 +13,14 @@ class GridViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        viewModel.generateGrid(row: 10, col: 5)
+        viewModel.generateGrid(row: 15, col: 8)
+        
+        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
+           layout.sectionInset = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
+           layout.minimumInteritemSpacing = 0
+           layout.minimumLineSpacing = 0
+           collectionView!.collectionViewLayout = layout
+        
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
