@@ -17,12 +17,12 @@ class Cell {
     var mine: Bool = false
     var revealed: Bool = false {
         didSet {
-            print("grid value changed")
+           
         }
     }
     var neighbouringMines: Int = 0 {
         didSet {
-            print("+1")
+            
         }
     }
 }
