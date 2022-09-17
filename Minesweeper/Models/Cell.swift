@@ -25,4 +25,5 @@ class Cell {
             
         }
     }
+    var flagged: Bool = false
 }
