@@ -10,10 +10,6 @@ import Foundation
 class GridViewModel {
     var grid: [[Cell]] = []
     
-    init() {
-        self.grid = generateGrid(row: 10, col: 5)
-    }
-    
     func reveal(cellAt p: IndexPath) {
         var stack: [IndexPath] = [p]
         
@@ -30,8 +26,7 @@ class GridViewModel {
         }
     }
     
-    func generateGrid(row: Int, col: Int) -> [[Cell]] {
-        var grid = [[Cell]]()
+    func generateGrid(row: Int, col: Int) {
         for i in 0..<row {
             grid.append([])
             for _ in 0..<col {
@@ -40,7 +35,6 @@ class GridViewModel {
         }
         
         incrementNeighbouringMines()
-        return grid
     }
     
 }
@@ -70,8 +64,7 @@ extension GridViewModel {
                let n = locateNeighbours(cellAt: IndexPath(row: j, section: i))
                 
                 for p in n {
-                    let cell = grid[p.i][p.j]
-                    cell.neighbouringMines += 1
+                    grid[p.i][p.j].neighbouringMines += 1
                 }
             }
         }

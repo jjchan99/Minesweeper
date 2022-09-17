@@ -20,5 +20,9 @@ class Cell {
             print("grid value changed")
         }
     }
-    var neighbouringMines: Int = 0
+    var neighbouringMines: Int = 0 {
+        didSet {
+            print("+1")
+        }
+    }
 }
