@@ -67,23 +67,11 @@ extension GridViewModel {
         
         for i in 0..<grid.count {
             for j in 0..<grid[i].count {
+               let n = locateNeighbours(cellAt: IndexPath(row: j, section: i))
                 
-                let c = grid[i][j]
-                
-                let u = grid[optional: i - 1]?[optional: j]
-                let ur = grid[optional: i - 1]?[optional: j + 1]
-                let r = grid[optional: i]?[optional: j + 1]
-                let dr = grid[optional: i + 1]?[optional: j + 1]
-                let d = grid[optional: i + 1]?[optional: j]
-                let dl = grid[optional: i + 1]?[optional: j - 1]
-                let l = grid[optional: i]?[optional: j - 1]
-                let ul = grid[optional: i - 1]?[optional: j - 1]
-                
-                if c.mine {
-                    for cell in [u, ur, r, dr, d, dl, l, ul] {
-                        guard let cell = cell else { continue }
-                        cell.neighbouringMines += 1
-                    }
+                for p in n {
+                    let cell = grid[p.i][p.j]
+                    cell.neighbouringMines += 1
                 }
             }
         }

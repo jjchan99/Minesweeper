@@ -14,7 +14,13 @@ class CellViewModel {
         }
         
         didSet {
-            text = cell!.revealed ? "X" : "?"
+            text = cell!.revealed ?
+               cell!.mine ?
+                   "X" :
+                       cell?.neighbouringMines == 0 ?
+                          "O" :
+                          "\(cell!.neighbouringMines)"
+            : "?"
         }
     }
     
