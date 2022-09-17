@@ -18,7 +18,7 @@
 		85FA50CE28D465BD00B1F25A /* GridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA50CD28D465BD00B1F25A /* GridViewModel.swift */; };
 		85FA50D028D47A4000B1F25A /* CellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA50CF28D47A4000B1F25A /* CellViewModel.swift */; };
 		85FA50D328D47B0100B1F25A /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA50D228D47B0100B1F25A /* MainViewController.swift */; };
-		85FA50D528D47E7600B1F25A /* GridGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA50D428D47E7600B1F25A /* GridGenerator.swift */; };
+		85FA50D528D47E7600B1F25A /* RandomAccessCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85FA50D428D47E7600B1F25A /* RandomAccessCollection.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,7 +35,7 @@
 		85FA50CD28D465BD00B1F25A /* GridViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridViewModel.swift; sourceTree = "<group>"; };
 		85FA50CF28D47A4000B1F25A /* CellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CellViewModel.swift; sourceTree = "<group>"; };
 		85FA50D228D47B0100B1F25A /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		85FA50D428D47E7600B1F25A /* GridGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GridGenerator.swift; sourceTree = "<group>"; };
+		85FA50D428D47E7600B1F25A /* RandomAccessCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomAccessCollection.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +70,7 @@
 			children = (
 				1DF3956728D0541E00ABAC34 /* AppDelegate.swift */,
 				1DF3956928D0541E00ABAC34 /* SceneDelegate.swift */,
+				85FA50D628D47E8300B1F25A /* Extensions */,
 				85FA50D128D47ACE00B1F25A /* ViewControllers */,
 				85FA50CC28D4659800B1F25A /* ViewModels */,
 				1DF3957E28D0568100ABAC34 /* Models */,
@@ -94,7 +95,6 @@
 			isa = PBXGroup;
 			children = (
 				1DF3957F28D0569300ABAC34 /* Cell.swift */,
-				85FA50D628D47E8300B1F25A /* Helpers */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -117,12 +117,12 @@
 			path = ViewControllers;
 			sourceTree = "<group>";
 		};
-		85FA50D628D47E8300B1F25A /* Helpers */ = {
+		85FA50D628D47E8300B1F25A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				85FA50D428D47E7600B1F25A /* GridGenerator.swift */,
+				85FA50D428D47E7600B1F25A /* RandomAccessCollection.swift */,
 			);
-			path = Helpers;
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -196,7 +196,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				85FA50D528D47E7600B1F25A /* GridGenerator.swift in Sources */,
+				85FA50D528D47E7600B1F25A /* RandomAccessCollection.swift in Sources */,
 				85FA50CE28D465BD00B1F25A /* GridViewModel.swift in Sources */,
 				1DF3958428D05D7100ABAC34 /* CellView.swift in Sources */,
 				1DF3956828D0541E00ABAC34 /* AppDelegate.swift in Sources */,
