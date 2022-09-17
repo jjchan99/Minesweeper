@@ -8,7 +8,7 @@
 import Foundation
 
 class GridViewModel {
-    var cells: [[Cell]] = [] 
+    var grid: [[Cell]] = []
     
     func generateCell() -> Cell {
         let mineFactor: Int = Int.random(in: 1...3)
@@ -19,7 +19,11 @@ class GridViewModel {
         }
     }
     
-    func incrementNeighbouringMines(grid: [[Cell]]) {
+    func reveal() {
+        
+    }
+    
+    func incrementNeighbouringMines() {
         
         for i in 0..<grid.count {
             for j in 0..<grid[i].count {
