@@ -20,7 +20,6 @@ class GridViewController: UICollectionViewController {
            layout.minimumInteritemSpacing = 0
            layout.minimumLineSpacing = 0
            collectionView!.collectionViewLayout = layout
-        
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -35,7 +34,7 @@ class GridViewController: UICollectionViewController {
         let cell = viewModel.grid[indexPath.section][indexPath.row]
         
         if let cellView = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as? CellView {
-            
+           
             cellView.configure(cell: cell)
             
             return cellView
@@ -45,9 +44,9 @@ class GridViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell =  viewModel.grid[indexPath.section][indexPath.row]
+        let cell = viewModel.grid[indexPath.section][indexPath.row]
         cell.revealed.toggle()
-        let cellView = collectionView.cellForItem(at: indexPath) as! CellView
-        cellView.configure(cell: cell)
+        viewModel.reveal(cellAt: indexPath)
+        self.collectionView.reloadData()
     }
 }

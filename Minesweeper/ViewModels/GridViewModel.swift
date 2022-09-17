@@ -12,14 +12,14 @@ class GridViewModel {
     
     func reveal(cellAt p: IndexPath) {
         var stack: [IndexPath] = [p]
-        
+        guard !grid[p.i][p.j].mine else {
+            return
+        }
         while !stack.isEmpty {
-            
-            let current = grid[p.i][p.j]
+            let l = stack.popLast()!
+            let current = grid[l.i][l.j]
             current.revealed.toggle()
-            
             for p in locateNeighbours(cellAt: p) {
-                
                 guard !grid[p.i][p.j].mine else { continue }
                 stack.append(p)
             }
