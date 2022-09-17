@@ -10,13 +10,8 @@ import Foundation
 class GridViewModel {
     var grid: [[Cell]] = []
     
-    func generateCell() -> Cell {
-        let mineFactor: Int = Int.random(in: 1...3)
-        if mineFactor == 1 {
-            return Cell(mine: true)
-        } else {
-            return Cell()
-        }
+    init() {
+        self.grid = generateGrid(row: 10, col: 5)
     }
     
     func reveal(cellAt p: IndexPath) {
@@ -35,6 +30,22 @@ class GridViewModel {
         }
     }
     
+    func generateGrid(row: Int, col: Int) -> [[Cell]] {
+        var grid = [[Cell]]()
+        for i in 0..<row {
+            grid.append([])
+            for _ in 0..<col {
+                grid[i].append(generateCell())
+            }
+        }
+        
+        incrementNeighbouringMines()
+        return grid
+    }
+    
+}
+
+extension GridViewModel {
     private func locateNeighbours(cellAt p: IndexPath) -> [IndexPath] {
         let i = p.i
         let j = p.j
@@ -52,7 +63,7 @@ class GridViewModel {
         return n
     }
     
-    func incrementNeighbouringMines() {
+    private func incrementNeighbouringMines() {
         
         for i in 0..<grid.count {
             for j in 0..<grid[i].count {
@@ -78,17 +89,12 @@ class GridViewModel {
         }
     }
     
-    func generateGrid(row: Int, col: Int) -> [[Cell]] {
-        var grid = [[Cell]]()
-        for i in 0..<row {
-            grid.append([])
-            for _ in 0..<col {
-                grid[i].append(generateCell())
-            }
+    private func generateCell() -> Cell {
+        let mineFactor: Int = Int.random(in: 1...3)
+        if mineFactor == 1 {
+            return Cell(mine: true)
+        } else {
+            return Cell()
         }
-        
-//        incrementNeighbouringMines(grid: grid)
-        return grid
     }
-    
 }
