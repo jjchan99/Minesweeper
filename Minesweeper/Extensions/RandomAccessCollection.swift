@@ -8,7 +8,7 @@
 import Foundation
 
 extension RandomAccessCollection {
-    subscript(index: Index) -> Element? {
-        self.indices.contains(index) ? (self[index] as Element) : nil
+    subscript(optional i: Index) -> Iterator.Element? {
+        return self.indices.contains(i) ? self[i] : nil
     }
 }
