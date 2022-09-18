@@ -23,13 +23,16 @@ class GridViewController: UICollectionViewController {
            collectionView!.collectionViewLayout = layout
     }
     
-//    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-//        let headerView = collectionView.dequeueReusableSupplementaryView(
-//              ofKind: kind,
-//              withReuseIdentifier: "\(HeaderView.self)",
-//              for: indexPath)
-//         return headerView
-//    }
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let headerView = collectionView.dequeueReusableSupplementaryView(
+              ofKind: kind,
+              withReuseIdentifier: "HeaderView",
+              for: indexPath)
+        
+        
+            return headerView
+        
+    }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.grid[section].count
