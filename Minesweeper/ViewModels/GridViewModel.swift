@@ -20,8 +20,11 @@ class GridViewModel {
             let current = grid[l.i][l.j]
             current.revealed.toggle()
             for p in locateNeighbours(cellAt: p) {
+                print("neighbours count: \(locateNeighbours(cellAt: p).count)")
                 guard !grid[p.i][p.j].mine else { continue }
+                guard !grid[p.i][p.j].revealed else { continue }
                 stack.append(p)
+//                grid[p.i][p.j].revealed = true
             }
         }
     }
@@ -53,7 +56,6 @@ extension GridViewModel {
         if let dl = grid[optional: i + 1]?[optional: j - 1] {  n.append(IndexPath(row: j - 1, section: i + 1))   }
         if let l = grid[optional: i]?[optional: j - 1] {  n.append(IndexPath(row: j - 1, section: i))   }
         if let ul = grid[optional: i - 1]?[optional: j - 1] {  n.append(IndexPath(row: j - 1, section: i - 1))   }
-        
         return n
     }
     

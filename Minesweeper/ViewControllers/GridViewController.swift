@@ -44,8 +44,6 @@ class GridViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = viewModel.grid[indexPath.section][indexPath.row]
-        cell.revealed.toggle()
         viewModel.reveal(cellAt: indexPath)
         self.collectionView.reloadData()
     }
