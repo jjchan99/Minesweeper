@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1D0DDF4328D5F601001B825F /* UICollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D0DDF4228D5F601001B825F /* UICollectionViewCell.swift */; };
+		1DD9CA4028D7513700C9EDFA /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DD9CA3F28D7513700C9EDFA /* HeaderView.swift */; };
 		1DF3956828D0541E00ABAC34 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF3956728D0541E00ABAC34 /* AppDelegate.swift */; };
 		1DF3956A28D0541E00ABAC34 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1DF3956928D0541E00ABAC34 /* SceneDelegate.swift */; };
 		1DF3956F28D0541E00ABAC34 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1DF3956D28D0541E00ABAC34 /* Main.storyboard */; };
@@ -24,6 +25,7 @@
 
 /* Begin PBXFileReference section */
 		1D0DDF4228D5F601001B825F /* UICollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UICollectionViewCell.swift; sourceTree = "<group>"; };
+		1DD9CA3F28D7513700C9EDFA /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
 		1DF3956428D0541E00ABAC34 /* Minesweeper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Minesweeper.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DF3956728D0541E00ABAC34 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1DF3956928D0541E00ABAC34 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				1DF3958328D05D7100ABAC34 /* CellView.swift */,
+				1DD9CA3F28D7513700C9EDFA /* HeaderView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -206,6 +209,7 @@
 				1DF3956828D0541E00ABAC34 /* AppDelegate.swift in Sources */,
 				85FA50D028D47A4000B1F25A /* CellViewModel.swift in Sources */,
 				1DF3958228D05B5100ABAC34 /* GridViewController.swift in Sources */,
+				1DD9CA4028D7513700C9EDFA /* HeaderView.swift in Sources */,
 				1DF3956A28D0541E00ABAC34 /* SceneDelegate.swift in Sources */,
 				1DF3958028D0569300ABAC34 /* Cell.swift in Sources */,
 				1D0DDF4328D5F601001B825F /* UICollectionViewCell.swift in Sources */,

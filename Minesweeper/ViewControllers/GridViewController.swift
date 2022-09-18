@@ -21,8 +21,15 @@ class GridViewController: UICollectionViewController {
            layout.minimumLineSpacing = 0
            layout.itemSize = CGSize(width: 40, height: 40)
            collectionView!.collectionViewLayout = layout
-       
     }
+    
+//    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+//        let headerView = collectionView.dequeueReusableSupplementaryView(
+//              ofKind: kind,
+//              withReuseIdentifier: "\(HeaderView.self)",
+//              for: indexPath)
+//         return headerView
+//    }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.grid[section].count
