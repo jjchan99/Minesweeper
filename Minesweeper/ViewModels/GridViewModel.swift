@@ -12,8 +12,11 @@ class GridViewModel {
     
     func reveal(cellAt p: IndexPath) {
         let current = grid[p.i][p.j]
-        guard !current.mine else { return }
-        current.revealed.toggle()
+        guard !current.mine else {
+            revealAll()
+            return
+        }
+        current.revealed = true
         guard current.neighbouringMines == 0 else { return }
         for p in locateNeighbours(cellAt: p) {
                 guard !grid[p.i][p.j].mine else { break }
@@ -72,6 +75,14 @@ extension GridViewModel {
             return Cell(mine: true)
         } else {
             return Cell()
+        }
+    }
+    
+    private func revealAll() {
+        grid.forEach { section in
+            section.forEach { cell in
+                cell.revealed = true
+            }
         }
     }
 }
