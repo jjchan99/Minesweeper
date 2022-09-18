@@ -27,11 +27,10 @@ class GridViewController: UICollectionViewController {
         let headerView = collectionView.dequeueReusableSupplementaryView(
               ofKind: kind,
               withReuseIdentifier: "HeaderView",
-              for: indexPath)
-        
+              for: indexPath) as! HeaderView
+        headerView.configure(indexPath: indexPath)
         
             return headerView
-        
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
