@@ -11,21 +11,14 @@ class GridViewModel {
     var grid: [[Cell]] = []
     
     func reveal(cellAt p: IndexPath) {
-        var stack: [IndexPath] = [p]
-        guard !grid[p.i][p.j].mine else {
-            return
-        }
-        while !stack.isEmpty {
-            let l = stack.popLast()!
-            let current = grid[l.i][l.j]
-            current.revealed.toggle()
-            for p in locateNeighbours(cellAt: p) {
-                print("neighbours count: \(locateNeighbours(cellAt: p).count)")
-                guard !grid[p.i][p.j].mine else { continue }
+        let current = grid[p.i][p.j]
+        guard !current.mine else { return }
+        current.revealed.toggle()
+        guard current.neighbouringMines == 0 else { return }
+        for p in locateNeighbours(cellAt: p) {
+                guard !grid[p.i][p.j].mine else { break }
                 guard !grid[p.i][p.j].revealed else { continue }
-                stack.append(p)
-//                grid[p.i][p.j].revealed = true
-            }
+                reveal(cellAt: p)
         }
     }
     
