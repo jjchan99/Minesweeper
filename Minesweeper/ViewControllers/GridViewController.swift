@@ -14,13 +14,6 @@ class GridViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.generateGrid(row: 15, col: 10)
-        
-//        let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-//           layout.sectionInset = UIEdgeInsets(top: 0, left: 5, bottom: 0, right: 5)
-//           layout.minimumInteritemSpacing = 0
-//           layout.minimumLineSpacing = 0
-//           layout.itemSize = CGSize(width: 40, height: 40)
-//           collectionView!.collectionViewLayout = layout
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
