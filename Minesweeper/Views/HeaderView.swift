@@ -6,8 +6,10 @@
 //
 
 import UIKit
+import Combine
 
 class HeaderView: UICollectionReusableView {
+    var subscribers = Set<AnyCancellable>()
     var viewModel = HeaderViewModel()
     @IBOutlet weak var button: UIButton!
   
@@ -17,6 +19,8 @@ class HeaderView: UICollectionReusableView {
     
     func configure() {
         viewModel.createTimer()
-        self.time.text = "\(viewModel.count)"
+        viewModel.count.sink { count in
+            self.time.text = "\(count)"
+        }.store(in: &subscribers)
     }
 }

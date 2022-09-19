@@ -6,16 +6,17 @@
 //
 
 import UIKit
+import Combine
 
 class HeaderViewModel {
     var timer = Timer()
     func createTimer() {
         let timer = Timer.scheduledTimer(withTimeInterval: 2,
                                          repeats: true) { timer in
-            self.count += 1
+            self.count.value += 1
             
         }
         self.timer = timer
     }
-    var count: Int = 0 
+    var count: CurrentValueSubject<Int, Never> = CurrentValueSubject(0)
 }
