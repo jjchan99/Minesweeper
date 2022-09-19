@@ -21,6 +21,7 @@ class GridViewController: UICollectionViewController {
               ofKind: kind,
               withReuseIdentifier: "HeaderView",
               for: indexPath) as! HeaderView
+        headerView.configure()
             return headerView
     }
     
