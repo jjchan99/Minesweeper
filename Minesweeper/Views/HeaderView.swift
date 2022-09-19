@@ -22,5 +22,8 @@ class HeaderView: UICollectionReusableView {
         viewModel.count.sink { count in
             self.time.text = "\(count)"
         }.store(in: &subscribers)
+        viewModel.score.sink { score in
+            self.score.text = "\(score)"
+        }.store(in: &subscribers)
     }
 }

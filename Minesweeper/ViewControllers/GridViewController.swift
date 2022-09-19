@@ -53,6 +53,7 @@ class GridViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         viewModel.reveal(cellAt: indexPath)
+        headerView?.viewModel.score.value += 1
         self.collectionView.reloadData()
     }
 }

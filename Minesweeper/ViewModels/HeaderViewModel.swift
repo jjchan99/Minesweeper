@@ -19,4 +19,9 @@ class HeaderViewModel {
         self.timer = timer
     }
     var count: CurrentValueSubject<Int, Never> = CurrentValueSubject(0)
+    var score: CurrentValueSubject<Int, Never> = CurrentValueSubject(0) {
+        didSet {
+            print("score updated: \(score)")
+        }
+    }
 }
