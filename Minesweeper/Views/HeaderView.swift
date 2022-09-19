@@ -11,8 +11,6 @@ class HeaderView: UICollectionReusableView {
   @IBOutlet weak var button: UIButton!
     
     func configure(indexPath: IndexPath) {
-        if indexPath.section != 0 {
-            self.isHidden = true
-        }
+        
     }
 }

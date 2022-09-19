@@ -28,8 +28,6 @@ class GridViewController: UICollectionViewController {
               ofKind: kind,
               withReuseIdentifier: "HeaderView",
               for: indexPath) as! HeaderView
-        headerView.configure(indexPath: indexPath)
-        
             return headerView
     }
     
@@ -57,5 +55,19 @@ class GridViewController: UICollectionViewController {
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         viewModel.reveal(cellAt: indexPath)
         self.collectionView.reloadData()
+    }
+}
+
+extension GridViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(
+        _ collectionView: UICollectionView,
+        layout collectionViewLayout: UICollectionViewLayout,
+        referenceSizeForHeaderInSection section: Int
+    ) -> CGSize {
+        if section != 0 {
+        return CGSize.zero
+        } else {
+        return CGSize(width: 100, height: 100)
+        }
     }
 }
