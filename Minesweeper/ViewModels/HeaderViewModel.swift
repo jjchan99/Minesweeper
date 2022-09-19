@@ -9,7 +9,7 @@ import UIKit
 import Combine
 
 class HeaderViewModel {
-    var timer = Timer()
+    var timer: Timer?
     func createTimer() {
         let timer = Timer.scheduledTimer(withTimeInterval: 2,
                                          repeats: true) { timer in
@@ -20,6 +20,9 @@ class HeaderViewModel {
     }
     func cellTapped() {
         self.score.value += 1
+        if timer == nil {
+            createTimer()
+        }
     }
     var count: CurrentValueSubject<Int, Never> = CurrentValueSubject(0)
     var score: CurrentValueSubject<Int, Never> = CurrentValueSubject(0) {

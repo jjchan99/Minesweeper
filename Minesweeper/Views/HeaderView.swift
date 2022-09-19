@@ -18,7 +18,6 @@ class HeaderView: UICollectionReusableView {
     @IBOutlet weak var time: UITextField!
     
     func configure() {
-        viewModel.createTimer()
         viewModel.count.sink { count in
             self.time.text = "\(count)"
         }.store(in: &subscribers)
