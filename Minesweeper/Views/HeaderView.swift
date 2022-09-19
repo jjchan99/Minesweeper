@@ -26,4 +26,8 @@ class HeaderView: UICollectionReusableView {
             self.score.text = "\(score)"
         }.store(in: &subscribers)
     }
+    
+    func cellTapped() {
+        viewModel.cellTapped()
+    }
 }

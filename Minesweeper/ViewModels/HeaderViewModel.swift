@@ -18,6 +18,9 @@ class HeaderViewModel {
         }
         self.timer = timer
     }
+    func cellTapped() {
+        self.score.value += 1
+    }
     var count: CurrentValueSubject<Int, Never> = CurrentValueSubject(0)
     var score: CurrentValueSubject<Int, Never> = CurrentValueSubject(0) {
         didSet {
