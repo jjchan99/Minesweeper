@@ -10,7 +10,7 @@ import UIKit
 class GridViewController: UICollectionViewController {
      
     var viewModel = GridViewModel() 
-    
+    var headerView: HeaderView?
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.generateGrid(row: 15, col: 10)
@@ -21,8 +21,13 @@ class GridViewController: UICollectionViewController {
               ofKind: kind,
               withReuseIdentifier: "HeaderView",
               for: indexPath) as! HeaderView
-        headerView.configure()
+        if self.headerView == nil {
+            headerView.configure()
+            self.headerView = headerView
             return headerView
+        } else {
+            return self.headerView!
+        }
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
