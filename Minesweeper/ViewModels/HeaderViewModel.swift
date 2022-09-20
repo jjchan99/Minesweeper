@@ -12,22 +12,21 @@ class HeaderViewModel {
     var timer: Timer?
     func createTimer() {
         let timer = Timer.scheduledTimer(withTimeInterval: 1,
-                                         repeats: true) { timer in
-            self.count.value += 1
-            
+                                         repeats: true) { [weak self] timer in
+            self?.count += 1
+            self?.countChanged?(self!.count)
         }
         self.timer = timer
     }
     func cellTapped() {
-        self.score.value += 1
+        self.score += 1
         if timer == nil {
             createTimer()
         }
+        scoreChanged?(self.score)
     }
-    var count: CurrentValueSubject<Int, Never> = CurrentValueSubject(0)
-    var score: CurrentValueSubject<Int, Never> = CurrentValueSubject(0) {
-        didSet {
-            print("score updated: \(score)")
-        }
-    }
+    var countChanged: ((Int) -> Void)?
+    var scoreChanged: ((Int) -> Void)?
+    var count: Int = 0
+    var score: Int = 0
 }

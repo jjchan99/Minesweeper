@@ -9,7 +9,6 @@ import UIKit
 import Combine
 
 class HeaderView: UICollectionReusableView {
-    var subscribers = Set<AnyCancellable>()
     var viewModel = HeaderViewModel()
     @IBOutlet weak var button: UIButton!
     @IBAction func buttonPressed(_ sender: UIButton) {
@@ -31,13 +30,16 @@ class HeaderView: UICollectionReusableView {
     
     func configure() {
         viewModel = HeaderViewModel()
-        subscribers = Set<AnyCancellable>()
-        viewModel.count.sink { count in
-            self.time.text = "\(count)"
-        }.store(in: &subscribers)
-        viewModel.score.sink { score in
+        bindToEvents()
+    }
+    
+    private func bindToEvents() {
+        viewModel.countChanged = { [unowned self] count in
+            time.text = "\(count)"
+        }
+        viewModel.scoreChanged = { [unowned self] score in
             self.score.text = "\(score)"
-        }.store(in: &subscribers)
+        }
     }
     
     func cellTapped() {
