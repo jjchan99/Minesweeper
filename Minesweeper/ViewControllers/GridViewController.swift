@@ -17,7 +17,7 @@ class GridViewController: UICollectionViewController {
         viewModel.generateGrid(row: 15, col: 10)
     }
     
-    private func observeStatusChange() {
+    private func bindToEvents() {
         viewModel.statusChanged = { [unowned self] status in
             switch status {
             case .l:
@@ -42,7 +42,7 @@ class GridViewController: UICollectionViewController {
             headerView.reset = { [unowned self] in
                 reset()
             }
-            observeStatusChange()
+            bindToEvents()
             self.headerView = headerView
             return headerView
         } else {

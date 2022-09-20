@@ -18,10 +18,11 @@ class HeaderView: UICollectionReusableView {
     var reset: (() -> Void)?
     
     func pause() {
-        if viewModel.timer == nil {
-            viewModel.createTimer()
-        }
-        viewModel.timer!.invalidate()
+        viewModel.pause()
+    }
+    
+    func cellTapped() {
+        viewModel.cellTapped()
     }
     
     @IBOutlet weak var score: UITextField!
@@ -42,7 +43,5 @@ class HeaderView: UICollectionReusableView {
         }
     }
     
-    func cellTapped() {
-        viewModel.cellTapped()
-    }
+   
 }

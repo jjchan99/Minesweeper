@@ -29,4 +29,6 @@ class CellViewModel {
     }
     
     var text: String = ""
+    
+    var backgroundColorChanged: (())
 }
