@@ -18,6 +18,10 @@ class HeaderView: UICollectionReusableView {
     
     var reset: (() -> Void)?
     
+    func pause() {
+        viewModel.timer?.invalidate()
+    }
+    
     @IBOutlet weak var score: UITextField!
     
     @IBOutlet weak var time: UITextField!

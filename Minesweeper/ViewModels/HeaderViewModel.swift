@@ -11,7 +11,7 @@ import Combine
 class HeaderViewModel {
     var timer: Timer?
     func createTimer() {
-        let timer = Timer.scheduledTimer(withTimeInterval: 2,
+        let timer = Timer.scheduledTimer(withTimeInterval: 1,
                                          repeats: true) { timer in
             self.count.value += 1
             

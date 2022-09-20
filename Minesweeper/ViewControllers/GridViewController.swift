@@ -17,6 +17,19 @@ class GridViewController: UICollectionViewController {
         viewModel.generateGrid(row: 15, col: 10)
     }
     
+    private func observeStatusChange() {
+        viewModel.statusChanged = { [unowned self] status in
+            switch status {
+            case .l:
+                headerView?.pause()
+            case .tbc:
+                break
+            case .w:
+                break
+            }
+        }
+    }
+    
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let headerView = collectionView.dequeueReusableSupplementaryView(
               ofKind: kind,
@@ -27,6 +40,7 @@ class GridViewController: UICollectionViewController {
             headerView.reset = { [unowned self] in
                 reset()
             }
+            observeStatusChange()
             self.headerView = headerView
             return headerView
         } else {

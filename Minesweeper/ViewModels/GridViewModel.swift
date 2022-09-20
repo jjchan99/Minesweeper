@@ -8,11 +8,17 @@
 import Foundation
 
 class GridViewModel {
+    enum Status {
+        case w, l, tbc
+    }
+    var statusChanged: ((Status) -> Void)?
+    
     var grid: [[Cell]] = []
     
     func reveal(cellAt p: IndexPath) {
         let current = grid[p.i][p.j]
         guard !current.mine else {
+            statusChanged!(.l)
             revealAll()
             return
         }
