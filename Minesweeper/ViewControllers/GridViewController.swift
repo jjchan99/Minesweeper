@@ -36,8 +36,6 @@ class GridViewController: UICollectionViewController {
     
     private func reset() {
         viewModel.generateGrid(row: 15, col: 10)
-        headerView?.viewModel = HeaderViewModel()
-        headerView?.subscribers = Set<AnyCancellable>()
         headerView?.configure()
         self.collectionView.reloadData()
     }

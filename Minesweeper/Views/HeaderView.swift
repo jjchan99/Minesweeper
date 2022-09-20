@@ -23,6 +23,8 @@ class HeaderView: UICollectionReusableView {
     @IBOutlet weak var time: UITextField!
     
     func configure() {
+        viewModel = HeaderViewModel()
+        subscribers = Set<AnyCancellable>()
         viewModel.count.sink { count in
             self.time.text = "\(count)"
         }.store(in: &subscribers)
