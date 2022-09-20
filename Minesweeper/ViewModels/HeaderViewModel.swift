@@ -10,14 +10,21 @@ import Combine
 
 class HeaderViewModel {
     private(set) var timer: Timer?
-    private var count: Int = 0
-    private var score: Int = 0
+    private var count: Int = 0 {
+        didSet {
+            countChanged?(count)
+        }
+    }
+    private var score: Int = 0 {
+        didSet {
+            scoreChanged?(score)
+        }
+    }
     
     private func createTimer() {
         let timer = Timer.scheduledTimer(withTimeInterval: 1,
                                          repeats: true) { [weak self] timer in
             self?.count += 1
-            self?.countChanged?(self!.count)
         }
         self.timer = timer
     }
@@ -25,8 +32,6 @@ class HeaderViewModel {
     func reset() {
         count = 0
         score = 0
-        countChanged?(0)
-        scoreChanged?(0)
         timer?.invalidate()
         timer = nil
     }
@@ -36,7 +41,6 @@ class HeaderViewModel {
         if timer == nil {
             createTimer()
         }
-        scoreChanged?(self.score)
     }
     var countChanged: ((Int) -> Void)?
     var scoreChanged: ((Int) -> Void)?
