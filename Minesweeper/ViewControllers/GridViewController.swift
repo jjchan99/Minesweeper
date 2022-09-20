@@ -21,7 +21,7 @@ class GridViewController: UICollectionViewController {
         viewModel.statusChanged = { [unowned self] status in
             switch status {
             case .l:
-                headerView?.pause()
+                headerView!.pause()
             case .tbc:
                 break
             case .w:
