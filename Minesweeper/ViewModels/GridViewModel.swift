@@ -11,6 +11,11 @@ class GridViewModel {
     enum Status {
         case w, l, tbc
     }
+    private var status: Status = .tbc {
+        didSet {
+            statusChanged?(status)
+        }
+    }
     var statusChanged: ((Status) -> Void)?
     
     var grid: [[Cell]] = []
@@ -18,7 +23,7 @@ class GridViewModel {
     func reveal(cellAt p: IndexPath) {
         let current = grid[p.i][p.j]
         guard !current.mine else {
-            statusChanged!(.l)
+            status = .l
             revealAll()
             return
         }
@@ -31,7 +36,7 @@ class GridViewModel {
         }
         
         if noRemainingMines() {
-            statusChanged!(.w)
+            status = .w
         }
     }
     
