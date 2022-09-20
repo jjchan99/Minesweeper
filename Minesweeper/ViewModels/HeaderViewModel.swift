@@ -39,6 +39,7 @@ class HeaderViewModel {
     func reset() {
         count = 0
         score = 0
+        face = "😊"
         timer?.invalidate()
         timer = nil
     }
@@ -47,6 +48,12 @@ class HeaderViewModel {
         self.score += 1
         if timer == nil {
             createTimer()
+        }
+        if face == "😊" {
+            face = "😲"
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
+                self?.face = "😊"
+            }
         }
     }
     var faceChanged: ((String) -> Void)?
