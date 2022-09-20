@@ -26,6 +26,7 @@ class GridViewModel {
     }
     
     func generateGrid(row: Int, col: Int) {
+        self.grid = [[]]
         for i in 0..<row {
             grid.append([])
             for _ in 0..<col {

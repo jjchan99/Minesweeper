@@ -23,6 +23,10 @@ class GridViewController: UICollectionViewController {
               for: indexPath) as! HeaderView
         if self.headerView == nil {
             headerView.configure()
+            headerView.reset = { [unowned self] in
+                viewModel.generateGrid(row: 15, col: 10)
+                self.collectionView.reloadData()
+            }
             self.headerView = headerView
             return headerView
         } else {

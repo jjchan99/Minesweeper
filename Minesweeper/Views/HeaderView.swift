@@ -12,7 +12,12 @@ class HeaderView: UICollectionReusableView {
     var subscribers = Set<AnyCancellable>()
     var viewModel = HeaderViewModel()
     @IBOutlet weak var button: UIButton!
-  
+    @IBAction func buttonPressed(_ sender: UIButton) {
+        reset!()
+    }
+    
+    var reset: (() -> Void)?
+    
     @IBOutlet weak var score: UITextField!
     
     @IBOutlet weak var time: UITextField!
