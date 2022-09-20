@@ -22,6 +22,15 @@ class HeaderViewModel {
         self.timer = timer
     }
     
+    func reset() {
+        count = 0
+        score = 0
+        countChanged?(0)
+        scoreChanged?(0)
+        timer?.invalidate()
+        timer = nil
+    }
+    
     func cellTapped() {
         self.score += 1
         if timer == nil {

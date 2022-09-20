@@ -16,6 +16,7 @@ class HeaderView: UICollectionReusableView {
     
     @IBAction func buttonTapped(_ sender: UIButton) {
         resetButtonTapped!()
+        viewModel.reset()
     }
     
     private var resetButtonTapped: (() -> Void)?

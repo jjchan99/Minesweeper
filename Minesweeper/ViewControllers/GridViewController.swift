@@ -54,9 +54,6 @@ class GridViewController: UICollectionViewController {
     
     private func reset() {
         viewModel.generateGrid(row: 15, col: 10)
-        headerView!.configure() { [weak self] in
-            self?.reset()
-        }
         self.collectionView.reloadData()
     }
     
