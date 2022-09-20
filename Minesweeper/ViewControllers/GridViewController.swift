@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 class GridViewController: UICollectionViewController {
      
@@ -24,14 +25,21 @@ class GridViewController: UICollectionViewController {
         if self.headerView == nil {
             headerView.configure()
             headerView.reset = { [unowned self] in
-                viewModel.generateGrid(row: 15, col: 10)
-                self.collectionView.reloadData()
+                reset()
             }
             self.headerView = headerView
             return headerView
         } else {
             return self.headerView!
         }
+    }
+    
+    private func reset() {
+        viewModel.generateGrid(row: 15, col: 10)
+        headerView?.viewModel = HeaderViewModel()
+        headerView?.subscribers = Set<AnyCancellable>()
+        headerView?.configure()
+        self.collectionView.reloadData()
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
