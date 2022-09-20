@@ -21,8 +21,8 @@ class HeaderView: UICollectionReusableView {
     
     private var resetButtonTapped: (() -> Void)?
     
-    func pause() {
-        viewModel.pause()
+    func pause(status: Status) {
+        viewModel.pause(status: status)
     }
     
     func cellTapped() {
@@ -41,6 +41,9 @@ class HeaderView: UICollectionReusableView {
         }
         viewModel.scoreChanged = { [unowned self] score in
             self.score.text = "\(score)"
+        }
+        viewModel.faceChanged = { [unowned self] face in
+            self.button.titleLabel?.text = face
         }
     }
     

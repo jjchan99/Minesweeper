@@ -8,9 +8,6 @@
 import Foundation
 
 class GridViewModel {
-    enum Status {
-        case w, l, tbc
-    }
     private var status: Status = .tbc {
         didSet {
             statusChanged?(status)

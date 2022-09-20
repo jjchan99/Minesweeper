@@ -79,6 +79,7 @@
                                 <constraint firstItem="0Jn-Pe-EET" firstAttribute="leading" secondItem="Vdn-cD-CG5" secondAttribute="leadingMargin" id="o9P-t9-CSt"/>
                             </constraints>
                             <connections>
+                                <outlet property="button" destination="d6d-m4-8vc" id="hbg-Dh-6f2"/>
                                 <outlet property="score" destination="0Jn-Pe-EET" id="QlP-ht-dml"/>
                                 <outlet property="time" destination="NXu-Ep-Pej" id="CPx-99-WzS"/>
                             </connections>

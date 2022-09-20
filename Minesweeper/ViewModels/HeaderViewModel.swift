@@ -20,6 +20,13 @@ class HeaderViewModel {
             scoreChanged?(score)
         }
     }
+    private var face: String = "😊" {
+        didSet {
+            faceChanged?(face)
+        }
+    }
+    
+    
     
     private func createTimer() {
         let timer = Timer.scheduledTimer(withTimeInterval: 1,
@@ -42,13 +49,23 @@ class HeaderViewModel {
             createTimer()
         }
     }
+    var faceChanged: ((String) -> Void)?
     var countChanged: ((Int) -> Void)?
     var scoreChanged: ((Int) -> Void)?
     
-    func pause() {
+    func pause(status: Status) {
     if timer == nil {
         createTimer()
     }
     timer!.invalidate()
+        
+        switch status {
+        case .w:
+            face = "😎"
+        case .l:
+            face = "😵"
+        case .tbc:
+            face = "😊"
+        }
     }
 }
