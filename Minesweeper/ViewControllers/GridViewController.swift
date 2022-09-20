@@ -22,10 +22,12 @@ class GridViewController: UICollectionViewController {
             switch status {
             case .l:
                 headerView!.pause()
+                print("L")
             case .tbc:
                 break
             case .w:
-                break
+                headerView!.pause()
+                print("W")
             }
         }
     }

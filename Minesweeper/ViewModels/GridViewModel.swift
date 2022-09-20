@@ -29,6 +29,21 @@ class GridViewModel {
                 guard !grid[p.i][p.j].revealed else { continue }
                 reveal(cellAt: p)
         }
+        
+        if noRemainingMines() {
+            statusChanged!(.w)
+        }
+    }
+    
+    private func noRemainingMines() -> Bool {
+        for row in grid {
+            for cell in row {
+                if !cell.revealed && !cell.mine {
+                    return false
+                }
+            }
+        }
+        return true
     }
     
     func generateGrid(row: Int, col: Int) {
