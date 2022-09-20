@@ -33,26 +33,28 @@ class GridViewController: UICollectionViewController {
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let headerView = collectionView.dequeueReusableSupplementaryView(
+            let headerView = collectionView.dequeueReusableSupplementaryView(
               ofKind: kind,
               withReuseIdentifier: "HeaderView",
               for: indexPath) as! HeaderView
-        if self.headerView == nil {
-            headerView.configure()
-            headerView.reset = { [unowned self] in
-                reset()
+        
+        if let headerView = self.headerView {
+            return headerView
+        } else {
+            headerView.configure() { [weak self] in
+                self?.reset()
             }
             bindToEvents()
             self.headerView = headerView
             return headerView
-        } else {
-            return self.headerView!
         }
     }
     
     private func reset() {
         viewModel.generateGrid(row: 15, col: 10)
-        headerView?.configure()
+        headerView!.configure() { [weak self] in
+            self?.reset()
+        }
         self.collectionView.reloadData()
     }
     

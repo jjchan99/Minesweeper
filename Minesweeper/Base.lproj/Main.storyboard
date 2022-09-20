@@ -56,7 +56,7 @@
                                     <state key="normal" title="Button"/>
                                     <buttonConfiguration key="configuration" style="plain" title="😊"/>
                                     <connections>
-                                        <action selector="buttonPressed:" destination="Vdn-cD-CG5" eventType="touchUpInside" id="ubI-QX-jF4"/>
+                                        <action selector="buttonTapped:" destination="Vdn-cD-CG5" eventType="touchUpInside" id="pzP-Fw-oyb"/>
                                     </connections>
                                 </button>
                                 <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Score" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0Jn-Pe-EET">
@@ -79,7 +79,6 @@
                                 <constraint firstItem="0Jn-Pe-EET" firstAttribute="leading" secondItem="Vdn-cD-CG5" secondAttribute="leadingMargin" id="o9P-t9-CSt"/>
                             </constraints>
                             <connections>
-                                <outlet property="button" destination="d6d-m4-8vc" id="WJL-X3-Ro1"/>
                                 <outlet property="score" destination="0Jn-Pe-EET" id="QlP-ht-dml"/>
                                 <outlet property="time" destination="NXu-Ep-Pej" id="CPx-99-WzS"/>
                             </connections>

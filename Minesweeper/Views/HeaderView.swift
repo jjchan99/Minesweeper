@@ -11,11 +11,14 @@ import Combine
 class HeaderView: UICollectionReusableView {
     var viewModel = HeaderViewModel()
     @IBOutlet weak var button: UIButton!
-    @IBAction func buttonPressed(_ sender: UIButton) {
-        reset!()
+    @IBOutlet weak var score: UITextField!
+    @IBOutlet weak var time: UITextField!
+    
+    @IBAction func buttonTapped(_ sender: UIButton) {
+        resetButtonTapped!()
     }
     
-    var reset: (() -> Void)?
+    private var resetButtonTapped: (() -> Void)?
     
     func pause() {
         viewModel.pause()
@@ -25,13 +28,10 @@ class HeaderView: UICollectionReusableView {
         viewModel.cellTapped()
     }
     
-    @IBOutlet weak var score: UITextField!
-    
-    @IBOutlet weak var time: UITextField!
-    
-    func configure() {
+    func configure(resetButtonTapped: @escaping (() -> Void)) {
         viewModel = HeaderViewModel()
         bindToEvents()
+        self.resetButtonTapped = resetButtonTapped
     }
     
     private func bindToEvents() {
