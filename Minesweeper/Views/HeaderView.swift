@@ -30,7 +30,6 @@ class HeaderView: UICollectionReusableView {
     }
     
     func configure(resetButtonTapped: @escaping (() -> Void)) {
-        viewModel = HeaderViewModel()
         bindToEvents()
         self.resetButtonTapped = resetButtonTapped
     }
