@@ -17,6 +17,11 @@ class GridViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         viewModel.generateGrid(row: 15, col: 10)
+        print("w: \(UIScreen.main.bounds.width)")
+        print("h: \(UIScreen.main.bounds.height)")
+        if let flowLayout = self.collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+         
+           }
     }
     
     private func bindToEvents() {

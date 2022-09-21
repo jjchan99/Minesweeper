@@ -8,5 +8,8 @@
 import Foundation
 
 enum Status {
-    case w, l, tbc
+    case w, l, tbc  //no abbrieviations
 }
+
+//New game, in progress, won, loss
+

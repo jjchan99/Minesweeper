@@ -7,6 +7,14 @@
 
 import Foundation
 
+//Create game engine as singleton
+
+//State machine
+
+//Noficiation centre. Observer pattern
+
+//Delegate pattern
+
 class GridViewModel {
     private var status: Status = .tbc {
         didSet {
