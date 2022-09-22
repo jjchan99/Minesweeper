@@ -13,7 +13,9 @@ fileprivate var w13: Int = 428
 fileprivate var h13: Int = 926
 
 extension Int {
-   
+    var wScaled: Int {
+        return self * ( Int(w)/w13 )
+    }
     
     var hScaled: Int {
         return self * ( Int(h)/h13 )
